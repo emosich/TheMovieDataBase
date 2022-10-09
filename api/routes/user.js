@@ -4,7 +4,7 @@ const passport = require("passport");
 const UserController = require("../controllers/usersControllers");
 
 //registrar un user
-router.post("/register", UserController.registerUsers);
+router.post("/register", UserController.registerUser);
 
 //hacer login
 router.post(
