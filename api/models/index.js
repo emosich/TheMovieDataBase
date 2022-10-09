@@ -1,3 +1,6 @@
-const User = require("./User")
+const User = require("./User");
+const Favorites = require("./Favorites");
 
-module.exports = { User };
+Favorites.belongsTo(User, { as: "author" });
+
+module.exports = { User, Favorites };
