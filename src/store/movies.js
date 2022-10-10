@@ -18,11 +18,14 @@ export const getSearchMoviesRequest = createAsyncThunk("SEARCH", (search) => {
   return axios.get(`/api/movies/search`, search).then((res) => res.data);
 });
 
-const moviesReducer = createReducer([], {
-  [getPopularRequest.fulfilled]: (state, action) => action.payload,
-  [getUpcomingRequest.fulfilled]: (state, action) => action.payload,
-  [getGenerRequest.fulfilled]: (state, action) => action.payload,
-  [getSearchMoviesRequest.fulfilled]: (state, action) => action.payload,
-});
+const moviesReducer = createReducer(
+  [],
+  {
+    [getPopularRequest.fulfilled]: (state, action) => action.payload,
+    [getUpcomingRequest.fulfilled]: (state, action) => action.payload,
+    [getGenerRequest.fulfilled]: (state, action) => action.payload,
+    [getSearchMoviesRequest.fulfilled]: (state, action) => action.payload,
+  }
+);
 
 export default moviesReducer;

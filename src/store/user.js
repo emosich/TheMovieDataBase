@@ -14,22 +14,23 @@ export const sendLogoutRequest = createAsyncThunk("LOGOUT", () => {
 });
 
 export const getUserLoggedRequest = createAsyncThunk("LOGGED", (id) => {
-  return axios.get(`/api/users/me`).then((res) => res.data);
+  return axios
+    .get(`/api/users/me`)
+    .then((res) => res.data)
 });
 
 export const getSingleUserRequest = createAsyncThunk("SINGLE_USER", (id) => {
-  return axios.get(`/api/users/${id}`).then((res) => res.data);
+  return axios
+    .get(`/api/users/${id}`)
+    .then((res) => res.data)
 });
 
-const userReducer = createReducer(
-  {},
-  {
-    [sendRegisterRequest.fulfilled]: (state, action) => action.payload,
-    [sendLoginRequest.fulfilled]: (state, action) => action.payload,
-    [sendLogoutRequest.fulfilled]: (state, action) => action.payload,
-    [getSingleUserRequest.fulfilled]: (state, action) => action.payload,
-    [getUserLoggedRequest.fulfilled]: (state, action) => action.payload,
-  }
-);
+const userReducer = createReducer({}, {
+  [sendRegisterRequest.fulfilled]: (state, action) => action.payload,
+  [sendLoginRequest.fulfilled]: (state, action) => action.payload,
+  [sendLogoutRequest.fulfilled]: (state, action) => action.payload,
+  [getSingleUserRequest.fulfilled]: (state, action) => action.payload,
+  [getUserLoggedRequest.fulfilled]: (state, action) => action.payload,
+});
 
 export default userReducer;

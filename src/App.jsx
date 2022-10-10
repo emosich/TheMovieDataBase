@@ -1,0 +1,45 @@
+/* import { useEffect } from "react"; */
+import { Route, Routes } from "react-router";
+/* import { useDispatch, useSelector } from "react-redux"; */
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import Home from "./components/Home";
+import Card from "./commons/Card";
+import Register from "./components/Register.jsx";
+import Login from "./components/Login.jsx";
+import Favorites from "./components/Favorites.jsx";
+import Footer from "./commons/Footer";
+import NotFound from "./commons/NotFound";
+import Users from "./components/Users";
+import UserCard from "./commons/UserCard";
+/* import { getUserLoggedRequest } from "./store/user"; */
+
+const App = () => {
+  /* const user = useSelector((state) => state.user); 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserLoggedRequest());
+  }, []);*/
+  return (
+    <div className="app">
+        <Navbar />
+        <seccion className="content">
+          <Sidebar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/users/:id" element={<UserCard />} />
+            <Route path="/favorites/:type/:id/*" element={<Favorites />} />
+            <Route path="/media/:type/:id" element={<Card />} />
+            <Route path="/404" element={<NotFound />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </seccion>
+        <Footer />
+    </div>
+  );
+};
+
+export default App;
